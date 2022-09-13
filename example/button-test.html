@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Button Test</title>
+<!--    <script src="../packages/index.js"></script>-->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no,viewport-fit=cover">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .scroll-view {
+        height: 600px;
+    }
+  </style>
+</head>
+<body>
+
+<um-button> Default </um-button>
+<um-button type="primary" id="primaryBtn"> Primary </um-button>
+<div class="scroll-view">
+  <um-scroll-view use-refresh="false" refresh-color="#ff4400" refresh-fontsize="14" refresh-threshold="aa" use-load="false">
+    <ul class="goods-list">
+      <li class="goods-item"><a href="#">商品第1个</a></li>
+      <li class="goods-item"><a href="#">商品第2个</a></li>
+      <li class="goods-item"><a href="#">商品第3个</a></li>
+      <li class="goods-item"><a href="#">商品第4个</a></li>
+      <li class="goods-item"><a href="#">商品第5个</a></li>
+      <li class="goods-item"><a href="#">商品第6个</a></li>
+      <li class="goods-item"><a href="#">商品第7个</a></li>
+      <li class="goods-item"><a href="#">商品第8个</a></li>
+      <li class="goods-item"><a href="#">商品第9个</a></li>
+      <li class="goods-item"><a href="#">商品第10个</a></li>
+      <li class="goods-item"><a href="#">商品第11个</a></li>
+      <li class="goods-item"><a href="#">商品第12个</a></li>
+      <li class="goods-item"><a href="#">商品第13个</a></li>
+      <li class="goods-item"><a href="#">商品第14个</a></li>
+      <li class="goods-item"><a href="#">商品第15个</a></li>
+      <li class="goods-item"><a href="#">商品第16个</a></li>
+      <li class="goods-item"><a href="#">商品第17个</a></li>
+      <li class="goods-item"><a href="#">商品第18个</a></li>
+      <li class="goods-item"><a href="#">商品第19个</a></li>
+      <li class="goods-item"><a href="#">商品第20个</a></li>
+      <li class="goods-item"><a href="#">商品第21个</a></li>
+      <li class="goods-item"><a href="#">商品第22个</a></li>
+      <li class="goods-item"><a href="#">商品第23个</a></li>
+      <li class="goods-item"><a href="#">商品第24个</a></li>
+      <li class="goods-item"><a href="#">商品第25个</a></li>
+      <li class="goods-item"><a href="#">商品第26个</a></li>
+      <li class="goods-item"><a href="#">商品第27个</a></li>
+      <li class="goods-item"><a href="#">商品第28个</a></li>
+      <li class="goods-item"><a href="#">商品第29个</a></li>
+      <li class="goods-item"><a href="#">商品第30个</a></li>
+      <li class="goods-item"><a href="#">商品第31个</a></li>
+      <li class="goods-item"><a href="#">商品第32个</a></li>
+      <li class="goods-item"><a href="#">商品第33个</a></li>
+      <li class="goods-item"><a href="#">商品第34个</a></li>
+      <li class="goods-item"><a href="#">商品第35个</a></li>
+      <li class="goods-item"><a href="#">商品第36个</a></li>
+      <li class="goods-item"><a href="#">商品第37个</a></li>
+      <li class="goods-item"><a href="#">商品第38个</a></li>
+      <li class="goods-item"><a href="#">商品第39个</a></li>
+      <li class="goods-item"><a href="#">商品第40个</a></li>
+    </ul>
+  </um-scroll-view>
+</div>
+
+
+<script src="../packages/Button/Button.js"></script>
+<script src="../packages/ScrollView/UmScrollView.js"></script>
+
+<script>
+
+  let primaryBtn = document.querySelector("#primaryBtn");
+  primaryBtn.addEventListener('click', function (e){
+    console.log(e.detail);
+  })
+</script>
+</body>
+</html>
