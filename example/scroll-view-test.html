@@ -1,229 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-  </style>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <style>
-      * {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-      }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
 
-      html, body {
-          height: 100%;
-          background: skyblue;
-      }
+        html, body {
+            height: 100%;
+            background: skyblue;
+        }
 
-      .category__goods {
-          height: 100%;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-      }
+        .category__goods {
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
 
-      .search-land {
-          height: 48px;
-          position: relative;
-          text-align: center;
-          background: deepskyblue;
-          flex-shrink: 0;
-      }
+        .search-land {
+            height: 48px;
+            position: relative;
+            text-align: center;
+            background: deepskyblue;
+            flex-shrink: 0;
+        }
 
 
-      /*  ----   */
-      .category-body {
-          flex: 1;
-          overflow: hidden;
-      }
+        /*  ----   */
+        .category-body {
+            flex: 1;
+            overflow: hidden;
+        }
 
-      .category-body .aside {
-          width: 96px;
-          float: left;
-          overflow-y: auto;
-          overflow-x: hidden;
-          height: 100%;
-          background: salmon;
-      }
+        .category-body .aside {
+            width: 96px;
+            float: left;
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 100%;
+            background: salmon;
+        }
 
-      .root-list {
-          overflow-y: scroll;
-      }
+        .root-list {
+            overflow-y: scroll;
+        }
 
-      .category-body .content {
-          padding-left: 96px;
-          height: 100%;
-          width: 100%;
-          font-size: 12px;
-          box-sizing: border-box;
-          color: #252525;
-          background-color: #f3f5f7;
-      }
+        .category-body .content {
+            padding-left: 96px;
+            height: 100%;
+            width: 100%;
+            font-size: 12px;
+            box-sizing: border-box;
+            color: #252525;
+            background-color: #f3f5f7;
+        }
 
-      .category-body .content .scroll-view {
-          height: 100%;
-          overflow-y: scroll !important;
-          user-select: none;
-      }
+        .category-body .content .scroll-view {
+            height: 100%;
+            overflow-y: scroll !important;
+            user-select: none;
+        }
 
-      .scroll-inner {
-          position: relative;
-      }
+        .scroll-inner {
+            position: relative;
+        }
 
-      .pulling-refresh {
-          position: absolute;
-          left: 0;
-          width: 100%;
-          height: 3em;
-          overflow: hidden;
-          color: red;
-          font-size: 14px;
-          line-height: 3em;
-          text-align: center;
-          -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-      }
+        .pulling-refresh {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 3em;
+            overflow: hidden;
+            color: red;
+            font-size: 14px;
+            line-height: 3em;
+            text-align: center;
+            -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+        }
 
-      .pulling-load {
-          text-align: center;
-          line-height: 60px;
-      }
+        .pulling-load {
+            text-align: center;
+            line-height: 60px;
+        }
 
-      .back-top {
-          position: fixed;
-          right: 40px;
-          bottom: 40px;
-      }
+        .back-top {
+            position: fixed;
+            right: 40px;
+            bottom: 40px;
+        }
 
-      li {
-          line-height: 45px;
-          font-size: 18px;
-      }
-  </style>
+        li {
+            line-height: 45px;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
 
 <section class="category__goods">
-  <header class="search-land">
-    <div class="search-container">搜索</div>
-  </header>
+    <header class="search-land">
+        <div class="search-container">搜索</div>
+    </header>
 
-  <main class="category-body">
-    <aside class="aside">
-      <ul class="root-list">
-        <li class="category-item">分类1</li>
-        <li class="category-item">分类2</li>
-        <li class="category-item">分类3</li>
-        <li class="category-item">分类4</li>
-        <li class="category-item">分类5</li>
-        <li class="category-item">分类6</li>
-        <li class="category-item">分类7</li>
-        <li class="category-item">分类8</li>
-        <li class="category-item">分类9</li>
-        <li class="category-item">分类10</li>
-        <li class="category-item">分类11</li>
-        <li class="category-item">分类12</li>
-        <li class="category-item">分类13</li>
-        <li class="category-item">分类14</li>
-        <li class="category-item">分类15</li>
-        <li class="category-item">分类16</li>
-        <li class="category-item">分类17</li>
-        <li class="category-item">分类18</li>
-        <li class="category-item">分类19</li>
-        <li class="category-item">分类20</li>
-      </ul>
-    </aside>
-    <div class="content">
-      <div id="scrollView" class="scroll-view">
-        <div id="scrollInner" class="scroll-inner">
-          <!--          <div class="pulling-up">下拉刷新</div>-->
+    <main class="category-body">
+        <aside class="aside">
+            <ul class="root-list">
+                <li class="category-item">分类1</li>
+                <li class="category-item">分类2</li>
+                <li class="category-item">分类3</li>
+                <li class="category-item">分类4</li>
+                <li class="category-item">分类5</li>
+                <li class="category-item">分类6</li>
+                <li class="category-item">分类7</li>
+                <li class="category-item">分类8</li>
+                <li class="category-item">分类9</li>
+                <li class="category-item">分类10</li>
+                <li class="category-item">分类11</li>
+                <li class="category-item">分类12</li>
+                <li class="category-item">分类13</li>
+                <li class="category-item">分类14</li>
+                <li class="category-item">分类15</li>
+                <li class="category-item">分类16</li>
+                <li class="category-item">分类17</li>
+                <li class="category-item">分类18</li>
+                <li class="category-item">分类19</li>
+                <li class="category-item">分类20</li>
+            </ul>
+        </aside>
+        <div class="content">
+            <div id="scrollView" class="scroll-view">
+                <div id="scrollInner" class="scroll-inner">
+                    <!-- <div class="pulling-up">下拉刷新</div> -->
+                    <ul class="goods-list">
+                        <li>商品 1</li>
+                        <li>商品 2</li>
+                        <li>商品 3</li>
+                        <li>商品 4</li>
+                        <li>商品 5</li>
+                        <li>商品 6</li>
+                        <li>商品 7</li>
+                        <li>商品 8</li>
+                        <li>商品 9</li>
+                        <li>商品 10</li>
+                        <li>商品 11</li>
+                        <li>商品 12</li>
+                        <li>商品 13</li>
+                        <li>商品 14</li>
+                        <li>商品 15</li>
+                        <li>商品 16</li>
+                        <li>商品 17</li>
+                        <li>商品 18</li>
+                        <li>商品 19</li>
+                        <li>商品 20</li>
+                        <li>商品 21</li>
+                        <li>商品 22</li>
+                        <li>商品 23</li>
+                        <li>商品 24</li>
+                        <li>商品 25</li>
+                        <li>商品 26</li>
+                        <li>商品 27</li>
+                        <li>商品 28</li>
+                        <li>商品 29</li>
+                        <li>商品 30</li>
+                        <li>商品 31</li>
+                        <li>商品 32</li>
+                        <li>商品 33</li>
+                        <li>商品 34</li>
+                        <li>商品 35</li>
+                        <li>商品 36</li>
+                        <li>商品 37</li>
+                        <li>商品 38</li>
+                        <li>商品 39</li>
+                        <li>商品 40</li>
+                    </ul>
 
-          <ul class="goods-list">
-            <li>商品 1</li>
-            <li>商品 2</li>
-            <li>商品 3</li>
-            <li>商品 4</li>
-            <li>商品 5</li>
-            <li>商品 6</li>
-            <li>商品 7</li>
-            <li>商品 8</li>
-            <li>商品 9</li>
-            <li>商品 10</li>
-            <li>商品 11</li>
-            <li>商品 12</li>
-            <li>商品 13</li>
-            <li>商品 14</li>
-            <li>商品 15</li>
-            <li>商品 16</li>
-            <li>商品 17</li>
-            <li>商品 18</li>
-            <li>商品 19</li>
-            <li>商品 20</li>
-            <li>商品 21</li>
-            <li>商品 22</li>
-            <li>商品 23</li>
-            <li>商品 24</li>
-            <li>商品 25</li>
-            <li>商品 26</li>
-            <li>商品 27</li>
-            <li>商品 28</li>
-            <li>商品 29</li>
-            <li>商品 30</li>
-            <li>商品 31</li>
-            <li>商品 32</li>
-            <li>商品 33</li>
-            <li>商品 34</li>
-            <li>商品 35</li>
-            <li>商品 36</li>
-            <li>商品 37</li>
-            <li>商品 38</li>
-            <li>商品 39</li>
-            <li>商品 40</li>
-          </ul>
-
-          <div class="back-top" onclick="backTop()">返回顶部</div>
+                    <div class="back-top" onclick="backTop()">返回顶部</div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+    </main>
 </section>
 
 <script src="../packages/ScrollView/ScrollView.js"></script>
 <script>
 
-  let scroller = new UmScrollView('#scrollView');
+    let scroller = new UmScrollView('#scrollView');
 
-  let goodsIndex = 41;
-  scroller.on('scrollEnd', function (e) {
-    console.log('触底加载');
-    setTimeout(function () {
-      let div = document.createElement('div')
-      for (let i = goodsIndex; i < goodsIndex + 20; i++) {
-        const li = document.createElement('li');
-        li.innerHTML = '商品 ' + i;
-        document.querySelector('.goods-list').appendChild(li)
-      }
-      goodsIndex+=20
-      scroller.finishPullingLoad();
-    }, 500);
-  });
+    let goodsIndex = 41;
+    scroller.on('scroll-end', function (e) {
+        console.log('触底加载');
 
-  scroller.on('refresh', function () {
-    console.log("下拉刷新");
-    setTimeout(function () {
-      scroller.finishPullingRefresh();
-    }, 800);
-  });
+        setTimeout(function () {
+            let div = document.createElement('div')
+            for (let i = goodsIndex; i < goodsIndex + 20; i++) {
+                const li = document.createElement('li');
+                li.innerHTML = '商品 ' + i;
+                document.querySelector('.goods-list').appendChild(li)
+            }
+            goodsIndex += 20
+            scroller.finishPullingLoad();
+        }, 500);
 
-  function backTop() {
-    scroller.scrollTo(0, 0, 1000);
-  }
+    });
+
+    scroller.on('refresh', function () {
+        console.log("下拉刷新");
+        setTimeout(function () {
+            scroller.finishPullingRefresh();
+        }, 800);
+    });
+
+    function backTop() {
+        scroller.scrollTo(0, 0, 350);
+    }
 
 </script>
 

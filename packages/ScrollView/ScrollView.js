@@ -52,12 +52,13 @@ class UmScrollView {
       loadingText: options.pullDownRefresh.loadingText || '正在刷新中...',
       finishText: options.pullDownRefresh.finishText || '刷新完成'
     };
+
     this.pullUpLoad = {
-      threshold: options.pullDownRefresh.threshold || 60,
-      defaultText: options.pullDownRefresh.defaultText || '上拉加载更多',
-      tipText: options.pullDownRefresh.tipText || '上拉加载更多',
-      loadingText: options.pullDownRefresh.loadingText || '正在加载中...',
-      finishText: options.pullDownRefresh.finishText || '没有更多了'
+      threshold: options.pullUpLoad.threshold || 60,
+      defaultText: options.pullUpLoad.defaultText || '上拉加载更多',
+      tipText: options.pullUpLoad.tipText || '上拉加载更多',
+      loadingText: options.pullUpLoad.loadingText || '正在加载中...',
+      finishText: options.pullUpLoad.finishText || '没有更多了'
     };
 
     this.touchClientYStart = null;
@@ -75,7 +76,7 @@ class UmScrollView {
 
     this.events = {};
     this.eventTypes = {
-      scrollEnd: 'scrollEnd',
+      scrollEnd: 'scroll-end',
       scroll: 'scroll',
       refresh: 'refresh'
     };
@@ -204,7 +205,6 @@ class UmScrollView {
         let scrollTop = self.$scrollView.scrollTop;
         // 触发scroll事件
         self.trigger(self.eventTypes.scroll, scrollTop);
-
         // 判断是否触底了
         if (self.isFinishLoadMore) {
           if (scrollTop + self.scrollViewHeight + self.pullUpLoad.threshold >= self.scrollInnerHeight) {
@@ -236,7 +236,7 @@ class UmScrollView {
   }
 
   /**
-   * // 告诉scroll-view，已经准备好下一次的 触底事件了
+   * 告诉scroll-view，已经准备好下一次的 触底事件了
    */
   finishPullingLoad() {
     this.isFinishLoadMore = true;
@@ -246,8 +246,20 @@ class UmScrollView {
   /**
    * 滚动到指定元素
    */
-  scrollToElement() {
+  scrollToElement(selector, time = 300) {
+    let elementOffsetTop;
+    let element;
+    if (typeof selector === 'string') {
+      element = document.querySelector(selector);
+      if (!element) {
+        console.error('未找到对应元素');
+        return;
+      }
 
+       elementOffsetTop = element.offsetTop || 0;
+
+      this.scrollTo(0, elementOffsetTop, time);
+    }
   }
 
   /**
@@ -310,10 +322,6 @@ class UmScrollView {
 
     cancelAnimationFrame(self.timer2);
     step();
-  }
-
-  scrollTo2(x = 0, y = 0) {
-
   }
 
   refresh() {

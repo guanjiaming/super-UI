@@ -75,7 +75,7 @@ class UmScrollView extends HTMLElement {
   /**
    * 是否开启下拉加载
    */
-  get usUseLoad() {
+  get isUseLoad() {
     let useLoad = this.getAttribute('use-load');
     return useLoad !== 'false';
   }
